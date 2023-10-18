@@ -12,9 +12,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
 </head>
 <body>
+    <div id="block"></div>
     <div id="boiteLogin">
     <form action="" method="post" autocomplete="off">
             <div class="sign-in-input-group">
@@ -24,6 +26,15 @@
                 <button id="login" >Connexion</button>
             </div>
         </form>
+    </div>
+    <div id="hidden">
+        <?php
+            if (isset($_SESSION["block"])) {
+                ?>
+                    <p>Mauvais mot de passe ou nom d'usager...</p>
+                <?php
+            }
+        ?>
     </div>
 </body>
 </html>

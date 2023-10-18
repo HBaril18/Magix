@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "custom";
+    src: url("../../fonts/RoBlueShellBold-gxn35.otf");
+}
+
+button{
+    font-family: "custom";
+    font-size: 30px;
+    padding: 12px,12px,12px,12px;
+}
+

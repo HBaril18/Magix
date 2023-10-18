@@ -1,0 +1,62 @@
+/*Page CSS pour index.css*/
+/*animation de mario qui se cogne contre le block 'login, donc ?'*/
+
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url(../images/backGM2.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+#boiteLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-in-input-group {
+    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    align-items: center;
+    background-image: url(../images/Question_Block.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#nom {
+    text-align: center;
+    align-items: center;
+    width: 150px;
+}
+
+#mdp {
+    text-align: center;
+    align-items: center;
+    width: 150px;
+}
+
+#login {
+    text-align: center;
+    width: 157px;
+}
+
+#block {
+    height: 65px;
+    width: 65px;
+    position: absolute;
+    background-image: url(../images/Question_Block.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 800px;
+    left: 400px;
+}
+
+#hidden {
+}
