@@ -13,7 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>game</title>
 </head>
+<script src="js/game.js"></script>
 <body>
-    
+    <div id="jeux">
+        <div id="temps"></div>
+        <div id="vie"></div>
+        <div id="mp"></div>
+        <div id="etatPartie"></div>
+        <div id="opponent">
+            <div id=""></div>
+        </div>
+    </div>
 </body>
 </html>

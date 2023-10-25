@@ -1,12 +1,32 @@
 const state = () => {
-    fetch("ajax-state.php", {   // Il faut créer cette page et son contrôleur appelle 
+    fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle 
  method : "POST"        // l’API (games/state)
     })
-.then(response => response.json())
-.then(data => {
-    console.log(data); // contient les cartes/état du jeu.
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // contient les cartes/état du jeu.
 
-    setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
+        let maVariable = data;
+
+        if (typeof maVariable !== "object") {
+            if (maVariable == "LAST_GAME_WON") {
+                document.querySelector("#etatPartie").innerText = "VICTOIRE !!!";
+            }
+            else if (maVariable == "LAST_GAME_LOST"){
+                document.querySelector("#etatPartie").innerText = "DÉFAITE !!!";
+            }
+        }
+        else {
+            //GESTION DU TEMPS
+            document.querySelector("#temps").innerText = data.remainingTurnTime;
+
+            //GESTION DE LA VIE
+            document.querySelector("#vie").innerText = data.hp;
+
+            //GESTION DES MP
+            document.querySelector("#mp").innerText = data.mp;
+        }
+        setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })
 }
 

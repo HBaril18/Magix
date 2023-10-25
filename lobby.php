@@ -25,6 +25,9 @@
         <button id="quitter" onclick="location.href = 'logout.php';">
             Quitter
         </button>
+        <button id="deck" onclick="location.href = 'deck.php';">
+            Deck
+        </button>
     </div>
     <div id="chat">
         <iframe style="width:710px;height:300px;" onload="applyStyles(this)" 
