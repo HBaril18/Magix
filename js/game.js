@@ -4,7 +4,7 @@ const state = () => {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); // contient les cartes/état du jeu.
+        //console.log(data); // contient les cartes/état du jeu.
 
         let maVariable = data;
 
@@ -25,6 +25,12 @@ const state = () => {
 
             //GESTION DES MP
             document.querySelector("#mp").innerText = data.mp;
+
+            //GESTION DE LA MAIN DU JOUEUR
+            for (let index = 0; index < maVariable["hand"].length; index++) {
+                //document.querySelector("#main").innerText = maVariable.hand.index.id;
+                console.log(maVariable["hand"].index);
+            }
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })

@@ -20,6 +20,7 @@
         <div id="vie"></div>
         <div id="mp"></div>
         <div id="etatPartie"></div>
+        <div id="main"></div>
         <div id="opponent">
             <div id=""></div>
         </div>
