@@ -27,9 +27,11 @@ const state = () => {
             document.querySelector("#mp").innerText = data.mp;
 
             //GESTION DE LA MAIN DU JOUEUR
+            document.querySelector("#main").innerHTML = "";
             for (let index = 0; index < maVariable["hand"].length; index++) {
-                //document.querySelector("#main").innerText = maVariable.hand.index.id;
-                console.log(maVariable["hand"].index);
+                let newNode = document.createElement("div");
+                newNode.innerText = maVariable["hand"][index].id;
+                document.querySelector("#main").append(newNode);
             }
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel

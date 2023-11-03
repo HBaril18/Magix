@@ -1,19 +1,23 @@
 /*Page CSS pour index.css*/
 /*animation de mario qui se cogne contre le block 'login, donc ?'*/
 
+html{
+    background: url(/images/backGM2.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
 body {
     display: flex;
     justify-content: center;
-    background-image: url(../images/backGM2.jpeg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-attachment: fixed;
 }
 
 #boiteLogin {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
 }
 
 .sign-in-input-group {
@@ -28,6 +32,7 @@ body {
     background-image: url(../images/Question_Block.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
 }
 
 #nom {
@@ -47,16 +52,16 @@ body {
     width: 157px;
 }
 
-#block {
-    height: 65px;
-    width: 65px;
+/*#block {
+    height: 4.5vh;
+    width: 3vw;
     position: absolute;
     background-image: url(../images/Question_Block.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
-    top: 800px;
-    left: 400px;
-}
+    top: 68.9vh;
+    left: 37vw;
+}*/
 
 #hidden {
 }
