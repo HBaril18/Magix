@@ -11,18 +11,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/game.css">
     <title>game</title>
 </head>
 <script src="js/game.js"></script>
 <body>
     <div id="jeux">
-        <div id="temps"></div>
-        <div id="vie"></div>
-        <div id="mp"></div>
-        <div id="etatPartie"></div>
-        <div id="main"></div>
+        <div id="en-tete">
+            <div id="temps"></div>
+            <div id="etatPartie"></div>
+        </div>
+        <div id="joueur">
+            <div id="vie"></div>
+            <div id="mp"></div>
+            <div id="main"></div>
+        </div>
         <div id="opponent">
-            <div id=""></div>
+            <div id="main-opponent"></div>
         </div>
     </div>
 </body>

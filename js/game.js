@@ -27,11 +27,27 @@ const state = () => {
             document.querySelector("#mp").innerText = data.mp;
 
             //GESTION DE LA MAIN DU JOUEUR
-            document.querySelector("#main").innerHTML = "";
-            for (let index = 0; index < maVariable["hand"].length; index++) {
+            if(!isset($_SESSION["mainNbr"])){ //isset n'existe pas en js trouver équivalent
+                $_SESSION["mainNbr"] = 0;
+                console.log($_SESSION["mainNbr"]);
+            }
+            if ($_SESSION["mainNbr"] < maVariable["hand"].length) {
+                console.log("hey");
+                $_SESSION["mainNbr"] = maVariable["hand"].length;
+                document.querySelector("#main").innerHTML = "";
+                for (let index = 0; index < maVariable["hand"].length; index++) {
+                    let newNode = document.createElement("div");
+                    newNode.innerText = maVariable["hand"][index].id;
+                    document.querySelector("#main").append(newNode);
+                }
+            }
+            
+            //GESTION DE LA MAIN DE L'OPPOSANT
+            document.querySelector("#main-opponent").innerHTML = "";
+            for (let index = 0; index < maVariable["opponent"].handSize; index++) {
                 let newNode = document.createElement("div");
-                newNode.innerText = maVariable["hand"][index].id;
-                document.querySelector("#main").append(newNode);
+                newNode.innerText = "carte";
+                document.querySelector("#main-opponent").append(newNode);
             }
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
