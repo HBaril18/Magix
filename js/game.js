@@ -46,7 +46,6 @@ const state = () => {
             document.querySelector("#main-opponent").innerHTML = "";
             for (let index = 0; index < maVariable["opponent"].handSize; index++) {
                 let newNode = document.createElement("div");
-                newNode.innerText = "carte";
                 document.querySelector("#main-opponent").append(newNode);
             }
         }
