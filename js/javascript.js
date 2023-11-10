@@ -7,11 +7,11 @@ const applyStyles = iframe => {
 		hideIcons : false,
 		inputBackgroundColor : "light grey",
 		inputFontColor : "blue",
-		height : "700px",
+		height : "500px",
 		padding: "5px",
 		memberListFontColor : "#ff00dd",
 		borderColor : "black",
-		memberListBackgroundColor : "white",
+		memberListBackgroundColor : "white"
 	}
 	
 	setTimeout(() => {

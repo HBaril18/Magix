@@ -30,7 +30,7 @@
         </button>
     </div>
     <div id="chat">
-        <iframe style="width:710px;height:300px;" onload="applyStyles(this)" 
+        <iframe style="width:600px;height:530px;" onload="applyStyles(this)" 
             src="https://magix.apps-de-cours.com/server/#/chat/<?= $data["key"]?>">
         </iframe>
     </div>

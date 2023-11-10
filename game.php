@@ -27,6 +27,8 @@
             <div id="main"></div>
         </div>
         <div id="opponent">
+            <div id="vie-opposant"></div>
+            <div id="mp-opposant"></div>
             <div id="main-opponent"></div>
         </div>
     </div>

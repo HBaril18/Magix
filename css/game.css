@@ -26,7 +26,7 @@ body{
     align-content: center;
     justify-content: center;
     position: absolute;
-    left: 94vw;
+    left: 90%;
     width: 6vw;
     height: 100%;
     justify-content: center;
@@ -39,7 +39,7 @@ body{
 }
 #etatPartie{
     font-family: "Soft-BlkItalic";
-    font-size: 25px;
+    font-size: 15px;
     text-align: center;
 }
 #joueur{
@@ -47,7 +47,7 @@ body{
     flex-direction: row;
     align-items: center;
     position: absolute;
-    top:96vh;
+    top:90%;
     height: 10vh;
     left: -0.1vw;
     width: 100%;
@@ -57,16 +57,32 @@ body{
     font-family: "Arcade-Chrome";
     font-size: 30px;
     position: absolute;
-    top:6vh;
-    left: 94vw;
+    top:20%;
+    left: 93%;
     width: 100%;
 }
 #vie{
     font-family: "Arcade-Chrome";
     font-size: 30px;
     position: absolute;
-    top:6vh;
-    left: 4vw;
+    top:20%;
+    left: 5%;
+    width: 100%;
+}
+#mp-opposant{
+    font-family: "Arcade-Chrome";
+    font-size: 30px;
+    position: absolute;
+    top:20%;
+    left: 93%;
+    width: 100%;
+}
+#vie-opposant{
+    font-family: "Arcade-Chrome";
+    font-size: 30px;
+    position: absolute;
+    top:20%;
+    left: 5%;
     width: 100%;
 }
 #main{
@@ -76,7 +92,7 @@ body{
     position: absolute;
     width: 100%;
     height: 11vh;
-    bottom: 6vh;
+    bottom: 100%;
 }
 #main div{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -95,7 +111,7 @@ body{
     flex-direction: row;
     align-items: center;
     position: absolute;
-    top: 6vh;
+    top: 0%;
     height: 10vh;
     left: -0.1vw;
     width: 100%;
@@ -108,7 +124,7 @@ body{
     position: absolute;
     width: 100%;
     height: 11vh;
-    top: 6vh;
+    top: 100%;
 }
 #main-opponent div{
     font-family: "custom";

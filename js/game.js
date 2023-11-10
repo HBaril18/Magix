@@ -20,10 +20,10 @@ const state = () => {
             //GESTION DU TEMPS
             document.querySelector("#temps").innerText = data.remainingTurnTime;
 
-            //GESTION DE LA VIE
+            //GESTION DE LA VIE DU JOUEUR
             document.querySelector("#vie").innerText = data.hp;
 
-            //GESTION DES MP
+            //GESTION DES MP DU JOUEUR
             document.querySelector("#mp").innerText = data.mp;
 
             //GESTION DE LA MAIN DU JOUEUR
@@ -41,12 +41,16 @@ const state = () => {
                     document.querySelector("#main").append(newNode);
                 }
             //}
-            
+            //GESTION DE LA VIE DE L'OPPOSANT
+            document.querySelector("#vie-opposant").innerText = data.opponent.hp;
+            //GESTION DES MP DE L'OPPOSANT
+            document.querySelector("#mp-opposant").innerText = data.opponent.mp;
             //GESTION DE LA MAIN DE L'OPPOSANT
             document.querySelector("#main-opponent").innerHTML = "";
             for (let index = 0; index < maVariable["opponent"].handSize; index++) {
                 let newNode = document.createElement("div");
                 document.querySelector("#main-opponent").append(newNode);
+                //console.log(maVariable["opponent"]);
             }
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
