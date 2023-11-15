@@ -37,8 +37,29 @@ const state = () => {
                 document.querySelector("#main").innerHTML = "";
                 for (let index = 0; index < maVariable["hand"].length; index++) {
                     let newNode = document.createElement("div");
-                    newNode.innerText = maVariable["hand"][index].id;
+                    newNode.classList.add("carte");
+
+                    let nodeuid = maVariable["hand"][index].uid
+                    let nodeid = maVariable["hand"][index].id
+
+                    newNode.addEventListener("click", ()=>{
+                        action("PLAY", nodeuid, nodeid);
+                    })
+
+                    newNode.innerText = maVariable["hand"][index].uid;
                     document.querySelector("#main").append(newNode);
+                }
+                
+                if (maVariable["board"].length != 0){
+                    document.querySelector("#joueurCarte").innerHTML = "";
+                    for (let index = 0; index < maVariable["board"].length; index++) {
+                        let newNode = document.createElement("div");
+                        newNode.classList.add("carte-board");
+
+                        newNode.innerText = maVariable["hand"][index].id;
+                        document.querySelector("#joueurCarte").append(newNode);
+                    }
+                    console.log(maVariable["board"]);
                 }
             //}
             //GESTION DE LA VIE DE L'OPPOSANT

@@ -15,6 +15,7 @@
     <title>game</title>
 </head>
 <script src="js/game.js"></script>
+<script src="js/gameAction.js"></script>
 <body>
     <div id="jeux">
         <div id="en-tete">
@@ -25,6 +26,13 @@
             <div id="vie"></div>
             <div id="mp"></div>
             <div id="main"></div>
+        </div>
+        <div id="joueurCarte">
+
+        </div>
+        <div id="opposant-carte">
+
+        </div>
         </div>
         <div id="opponent">
             <div id="vie-opposant"></div>
