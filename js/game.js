@@ -73,6 +73,24 @@ const state = () => {
                 document.querySelector("#main-opponent").append(newNode);
                 //console.log(maVariable["opponent"]);
             }
+            console.log( maVariable["opponent"]);
+            //GESTION DU BOARD DE L'OPPOSANT
+            if (maVariable["opponent"]["board"].length != 0){
+                document.querySelector("#opposantCarte").innerHTML = "";
+                for (let index = 0; index < maVariable["opponent"]["board"].length; index++) {
+                    let newNode = document.createElement("div");
+                    newNode.classList.add("carteOpposant-board");
+
+                    let newDiv = document.createElement("div");
+                    newDiv.classList.add("spec");
+                    
+                    newNode.innerText = maVariable["opponent"]["board"][index].hp;
+                    newDiv.innerText = maVariable["opponent"]["board"][index].atk;
+
+                    document.querySelector("#opposantCarte").append(newNode);
+                    document.querySelector(".carteOpposant-board").append(newDiv);
+                }
+            }
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })

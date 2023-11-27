@@ -30,7 +30,7 @@
         <div id="joueurCarte">
 
         </div>
-        <div id="opposant-carte">
+        <div id="opposantCarte">
 
         </div>
         </div>
