@@ -34,6 +34,9 @@ const state = () => {
             //if ($_SESSION["mainNbr"] < maVariable["hand"].length) {
                // console.log("hey");
                 //$_SESSION["mainNbr"] = maVariable["hand"].length;
+                console.log(maVariable["yourTurn"]);
+            if(maVariable["yourTurn"]){
+                console.log("mon tour");
                 document.querySelector("#main").innerHTML = "";
                 for (let index = 0; index < maVariable["hand"].length; index++) {
                     let newNode = document.createElement("div");
@@ -41,10 +44,11 @@ const state = () => {
 
                     let nodeuid = maVariable["hand"][index].uid
                     let nodeid = maVariable["hand"][index].id
-
+                    
+                    
                     newNode.addEventListener("click", ()=>{
                         action("PLAY", nodeuid, nodeid);
-                    })
+                    });
 
                     newNode.innerText = maVariable["hand"][index].uid;
                     document.querySelector("#main").append(newNode);
@@ -56,46 +60,76 @@ const state = () => {
                         let newNode = document.createElement("div");
                         newNode.classList.add("carte-board");
 
+                        let newDiv = document.createElement("div");
+                        newDiv.classList.add("spec");
+
                         newNode.innerText = maVariable["hand"][index].id;
                         document.querySelector("#joueurCarte").append(newNode);
                     }
                     console.log(maVariable["board"]);
                 }
+
+                
+            }
             //}
             //GESTION DE LA VIE DE L'OPPOSANT
             document.querySelector("#vie-opposant").innerText = data.opponent.hp;
+
             //GESTION DES MP DE L'OPPOSANT
             document.querySelector("#mp-opposant").innerText = data.opponent.mp;
+
             //GESTION DE LA MAIN DE L'OPPOSANT
             document.querySelector("#main-opponent").innerHTML = "";
             for (let index = 0; index < maVariable["opponent"].handSize; index++) {
                 let newNode = document.createElement("div");
                 document.querySelector("#main-opponent").append(newNode);
-                //console.log(maVariable["opponent"]);
             }
-            console.log( maVariable["opponent"]);
+            
             //GESTION DU BOARD DE L'OPPOSANT
             if (maVariable["opponent"]["board"].length != 0){
                 document.querySelector("#opposantCarte").innerHTML = "";
                 for (let index = 0; index < maVariable["opponent"]["board"].length; index++) {
                     let newNode = document.createElement("div");
-                    newNode.classList.add("carteOpposant-board");
+                    newNode.classList.add(maVariable["opponent"]["board"][index].uid);
+                    newNode.id = "carteOpposant-board";
 
-                    let newDiv = document.createElement("div");
-                    newDiv.classList.add("spec");
+                    let newDivHP = document.createElement("div");
+                    newDivHP.classList.add("hpCarte");
+                    let newDivATK = document.createElement("div");
+                    newDivATK.classList.add("atkCarte");
                     
-                    newNode.innerText = maVariable["opponent"]["board"][index].hp;
-                    newDiv.innerText = maVariable["opponent"]["board"][index].atk;
+                    newDivATK.innerText = maVariable["opponent"]["board"][index].hp;
+                    newDivHP.innerText = maVariable["opponent"]["board"][index].atk;
 
                     document.querySelector("#opposantCarte").append(newNode);
-                    document.querySelector(".carteOpposant-board").append(newDiv);
+                    newNode.append(newDivHP);
+                    newNode.append(newDivATK);
                 }
             }
+
+            
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
-    })
+    });
 }
 
 window.addEventListener("load", () => {
-setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
+    setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
+
+    //GESTION DU BOUTON SURRENDER
+    let nodeSurrender = document.querySelector("#surrender");
+    nodeSurrender.addEventListener("click", ()=> {
+        console.log("click");
+        action("SURRENDER", null, null);
+    });
+
+    //GESTION DU BOUTON NEXTTURN
+    let nodeNextTurn = document.querySelector("#nextTurn");
+    nodeNextTurn.addEventListener("click", ()=> {
+        console.log("click");
+        action("END_TURN", null, null);
+    });
+
+    //GESTION DU BOUTON POUVOIR DU HÉRO
+
 });

@@ -20,12 +20,15 @@
     <div id="jeux">
         <div id="en-tete">
             <div id="temps"></div>
+            <div id="surrender">Se rendre</div>
             <div id="etatPartie"></div>
         </div>
         <div id="joueur">
             <div id="vie"></div>
             <div id="mp"></div>
             <div id="main"></div>
+            <div id="nextTurn">Passer la main</div>
+            <div id="heroPower">Pouvoir du héro</div>
         </div>
         <div id="joueurCarte">
 
