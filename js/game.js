@@ -17,6 +17,39 @@ const state = () => {
             }
         }
         else {
+            let targetuid = 0;
+
+            //GESTION DU BOARD DE L'OPPOSANT
+            if (maVariable["opponent"]["board"].length != 0){
+                document.querySelector("#opposantCarte").innerHTML = "";
+                for (let index = 0; index < maVariable["opponent"]["board"].length; index++) {
+                    let newNode = document.createElement("div");
+                    newNode.classList.add(maVariable["opponent"]["board"][index].uid);
+                    newNode.id = "carteOpposant-board";
+
+                    newNode.addEventListener("click", ()=> {
+                        targetuid = maVariable["opponent"]["board"][index].uid;
+                        console.log(targetuid);
+                    });
+
+                    let newDivHP = document.createElement("div");
+                    newDivHP.classList.add("hpCarte");
+                    let newDivATK = document.createElement("div");
+                    newDivATK.classList.add("atkCarte");
+                    let newDivMechanic = document.createElement("div");
+                    newDivMechanic.classList.add("mechanicCarte");
+                    
+                    newDivATK.innerText = maVariable["opponent"]["board"][index].atk;
+                    newDivHP.innerText = maVariable["opponent"]["board"][index].hp;
+                    newDivMechanic.innerText = maVariable["opponent"]["board"][index].mechanics;
+
+                    document.querySelector("#opposantCarte").append(newNode);
+                    newNode.append(newDivHP);
+                    newNode.append(newDivATK);
+                    newNode.append(newDivMechanic);
+                }
+            }
+
             //GESTION DU TEMPS
             document.querySelector("#temps").innerText = data.remainingTurnTime;
 
@@ -42,8 +75,8 @@ const state = () => {
                     let newNode = document.createElement("div");
                     newNode.classList.add("carte");
 
-                    let nodeuid = maVariable["hand"][index].uid
-                    let nodeid = maVariable["hand"][index].id
+                    let nodeuid = maVariable["hand"][index].uid;
+                    let nodeid = maVariable["hand"][index].id;
                     
                     
                     newNode.addEventListener("click", ()=>{
@@ -58,18 +91,27 @@ const state = () => {
                     document.querySelector("#joueurCarte").innerHTML = "";
                     for (let index = 0; index < maVariable["board"].length; index++) {
                         let newNode = document.createElement("div");
-                        newNode.classList.add("carte-board");
+                        newNode.id = "carte-board";
 
-                        let newDiv = document.createElement("div");
-                        newDiv.classList.add("spec");
+                        newNode.addEventListener("click", ()=> {
+                            let nodeuid = maVariable["board"][index].uid;
+                            let nodetargetuid = targetuid;
+                            action("ATTACK", nodeuid, nodetargetuid);
+                        });
 
-                        newNode.innerText = maVariable["hand"][index].id;
+                        let newDivHP = document.createElement("div");
+                        newDivHP.classList.add("hpCarte");
+                        let newDivATK = document.createElement("div");
+                        newDivATK.classList.add("atkCarte");
+                        
+                        newDivATK.innerText = maVariable["board"][index].atk;
+                        newDivHP.innerText = maVariable["board"][index].hp;
+
                         document.querySelector("#joueurCarte").append(newNode);
+                        newNode.append(newDivHP);
+                        newNode.append(newDivATK);
                     }
-                    console.log(maVariable["board"]);
-                }
-
-                
+                }  
             }
             //}
             //GESTION DE LA VIE DE L'OPPOSANT
@@ -83,31 +125,7 @@ const state = () => {
             for (let index = 0; index < maVariable["opponent"].handSize; index++) {
                 let newNode = document.createElement("div");
                 document.querySelector("#main-opponent").append(newNode);
-            }
-            
-            //GESTION DU BOARD DE L'OPPOSANT
-            if (maVariable["opponent"]["board"].length != 0){
-                document.querySelector("#opposantCarte").innerHTML = "";
-                for (let index = 0; index < maVariable["opponent"]["board"].length; index++) {
-                    let newNode = document.createElement("div");
-                    newNode.classList.add(maVariable["opponent"]["board"][index].uid);
-                    newNode.id = "carteOpposant-board";
-
-                    let newDivHP = document.createElement("div");
-                    newDivHP.classList.add("hpCarte");
-                    let newDivATK = document.createElement("div");
-                    newDivATK.classList.add("atkCarte");
-                    
-                    newDivATK.innerText = maVariable["opponent"]["board"][index].hp;
-                    newDivHP.innerText = maVariable["opponent"]["board"][index].atk;
-
-                    document.querySelector("#opposantCarte").append(newNode);
-                    newNode.append(newDivHP);
-                    newNode.append(newDivATK);
-                }
-            }
-
-            
+            }    
         }
         setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });
