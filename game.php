@@ -18,6 +18,8 @@
 <script src="js/gameAction.js"></script>
 <body>
     <div id="jeux">
+        <div id="nextTurn">Passer la main</div>
+        <div id="messageJeu"></div>
         <div id="en-tete">
             <div id="temps"></div>
             <div id="surrender">Se rendre</div>
@@ -27,7 +29,6 @@
             <div id="vie"></div>
             <div id="mp"></div>
             <div id="main"></div>
-            <div id="nextTurn">Passer la main</div>
             <div id="heroPower">Pouvoir du héro</div>
         </div>
         <div id="joueurCarte">
@@ -38,6 +39,7 @@
         </div>
         </div>
         <div id="opponent">
+            <div id="avatarEnnemi">AVATAR</div>
             <div id="vie-opposant"></div>
             <div id="mp-opposant"></div>
             <div id="main-opponent"></div>

@@ -34,9 +34,9 @@ const state = () => {
                             targetuid = maVariable["opponent"]["board"][index].uid;
                             //ACTION ATTACK
                             if (playerCardUid != null && targetuid != null) {
-                                console.log(playerCardUid);
-                                console.log(targetuid);
                                 action("ATTACK", playerCardUid, targetuid);
+                                targetuid = null;
+                                playerCardUid = null;
                             }
                         });
 
@@ -44,19 +44,12 @@ const state = () => {
                         newDivHP.classList.add("hpCarte");
                         let newDivATK = document.createElement("div");
                         newDivATK.classList.add("atkCarte");
-                        let newpATK = document.createElement("atk");
-                        newpATK.classList.add("atk");
                         let newDivMechanic = document.createElement("div");
                         newDivMechanic.classList.add("mechanicCarte");
-                        let newpHP = document.createElement("p");
-                        newpHP.classList.add("hp");
 
-                        newpATK.innerText = maVariable["opponent"]["board"][index].atk;
-                        newpHP.innerText = maVariable["opponent"]["board"][index].hp;
+                        newDivATK.innerText = maVariable["opponent"]["board"][index].atk;
+                        newDivHP.innerText = maVariable["opponent"]["board"][index].hp;
                         newDivMechanic.innerText = maVariable["opponent"]["board"][index].mechanics;
-
-                        newDivHP.append(newpHP);
-                        newDivATK.append(newpATK);
 
                         document.querySelector("#opposantCarte").append(newNode);
                         newNode.append(newDivHP);
@@ -83,15 +76,31 @@ const state = () => {
                         let newNode = document.createElement("div");
                         newNode.classList.add("carte");
 
-                        let nodeuid = maVariable["hand"][index].uid;
-                        let nodeid = maVariable["hand"][index].id;
+                        let newDivHP = document.createElement("div");
+                        newDivHP.classList.add("hpCarte");
+                        let newDivATK = document.createElement("div");
+                        newDivATK.classList.add("atkCarte");
+                        let newDivMechanic = document.createElement("div");
+                        newDivMechanic.classList.add("mechanicCarte");
+                        let newDivMP = document.createElement("div");
+                        newDivMP.classList.add("mp");
+
+                        newDivATK.innerText = maVariable["hand"][index].atk;
+                        newDivHP.innerText = maVariable["hand"][index].hp;
+                        newDivMechanic.innerText = maVariable["hand"][index].mechanics;
+                        newDivMP.innerText = maVariable["hand"][index].cost;
+
+                        document.querySelector("#main").append(newNode);
+                        newNode.append(newDivHP);
+                        newNode.append(newDivATK);
+                        newNode.append(newDivMechanic);
+                        newNode.append(newDivMP);
 
                         newNode.addEventListener("click", () => {
+                            let nodeuid = maVariable["hand"][index].uid;
+                            let nodeid = maVariable["hand"][index].id;
                             action("PLAY", nodeuid, nodeid);
                         });
-
-                        newNode.innerText = maVariable["hand"][index].uid;
-                        document.querySelector("#main").append(newNode);
                     }
                     handSize = maVariable["hand"].length
                 }
@@ -109,17 +118,20 @@ const state = () => {
                         newDivHP.classList.add("hpCarte");
                         let newDivATK = document.createElement("div");
                         newDivATK.classList.add("atkCarte");
-                        let divUID = document.createElement("div");
-                        divUID.classList.add("uid");
+                        let newDivMechanic = document.createElement("div");
+                        newDivMechanic.classList.add("mechanicCarte");
+
 
                         newDivATK.innerText = maVariable["board"][index].atk;
                         newDivHP.innerText = maVariable["board"][index].hp;
-                        divUID.innerText = maVariable["board"][index].uid;
+                        newDivMechanic.innerText = maVariable["board"][index].mechanics;
+
 
                         document.querySelector("#joueurCarte").append(newNode);
                         newNode.append(newDivHP);
                         newNode.append(newDivATK);
-                        newNode.append(divUID);
+                        newNode.append(newDivMechanic);
+
                     }
                 }
 
@@ -135,6 +147,18 @@ const state = () => {
                     let newNode = document.createElement("div");
                     document.querySelector("#main-opponent").append(newNode);
                 }
+
+                //GESTION CLIQUE SUR L'AVATAR ENNEMI
+                let nodeAvatar = document.querySelector("#avatarEnnemi");
+                nodeAvatar.addEventListener("click", () => {
+                    //ACTION ATTACK
+                    if (playerCardUid != null && targetuid != null) {
+                        console.log("click avatar");
+                        action("ATTACK", playerCardUid, 0);
+                        targetuid = null;
+                        playerCardUid = null;
+                    }
+                });
             }
             setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
         });
