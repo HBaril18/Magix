@@ -2,25 +2,29 @@
     font-family: "Arcade-Nerf";
     src: url("../fonts/PuffinArcade-Nerf.otf");
 }
+
 @font-face {
     font-family: "Arcade-Chrome";
     src: url("../fonts/PuffinArcade-Chrome.otf");
 }
+
 @font-face {
     font-family: "Soft-BlkItalic";
     src: url("../fonts/PuffinDisplaySoft-BlkItalic.otf");
 }
 
-body{
+body {
     width: 100vw;
     overflow: hidden;
 }
-#jeux{
+
+#jeux {
     display: flex;
     height: 100vh;
     width: 100vw;
 }
-#en-tete{
+
+#en-tete {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -30,61 +34,69 @@ body{
     width: 6vw;
     height: 100%;
 }
-#temps{
+
+#temps {
     font-family: "Arcade-Nerf";
     font-size: 25px;
     font-weight: bolder;
     text-align: center;
 }
-#etatPartie{
+
+#etatPartie {
     font-family: "Soft-BlkItalic";
     font-size: 15px;
     text-align: center;
 }
-#joueur{
+
+#joueur {
     display: flex;
     flex-direction: row;
     align-items: center;
     position: absolute;
-    top:92%;
+    top: 92%;
     height: 10vh;
     left: -0.1vw;
     width: 100%;
     background-color: bisque;
 }
-#mp{
+
+#mp {
     font-family: "Arcade-Chrome";
     font-size: 30px;
     position: absolute;
-    top:35%;
+    top: 35%;
     left: 93%;
     width: 100%;
 }
-#vie{
+
+#vie {
     font-family: "Arcade-Chrome";
     font-size: 30px;
     position: absolute;
-    top:35%;
+    top: 35%;
     left: 5%;
     width: 100%;
 }
-#mp-opposant{
+
+#mp-opposant {
     font-family: "Arcade-Chrome";
     font-size: 30px;
     position: absolute;
-    top:20%;
+    top: 20%;
     left: 93%;
     width: 100%;
 }
-#vie-opposant{
+
+#vie-opposant {
     font-family: "Arcade-Chrome";
     font-size: 30px;
     position: absolute;
-    top:20%;
+    top: 20%;
     left: 5%;
     width: 100%;
 }
-#main{
+
+#main {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -93,19 +105,21 @@ body{
     height: 11vh;
     bottom: 80%;
 }
-.carte{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+.carte {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-left: 1vw;
     margin-right: 1vw;
     width: 15%;
     height: 100%;
     background-image: url(../images/Question_Block.jpeg);
-    background-size:contain, cover;
+    background-size: contain, cover;
     background-repeat: no-repeat;
     background-position: center;
     text-align: center;
 }
-#joueurCarte{
+
+#joueurCarte {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -114,22 +128,23 @@ body{
     height: 25vh;
     top: 55%;
 }
-#carte-board{
+
+#carte-board {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-left: 1vw;
     margin-right: 1vw;
-    width: 10vw;
+    width: 10vh;
     height: 50%;
     background-image: url(../images/Question_Block.jpeg);
-    background-size:cover, cover;
+    background-size: cover, cover;
     background-repeat: no-repeat;
     background-position: center;
     text-align: center;
 }
-#opposantCarte{
+
+#opposantCarte {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -138,22 +153,23 @@ body{
     height: 25vh;
     top: 35%;
 }
-#carteOpposant-board{
+
+#carteOpposant-board {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-left: 1vw;
     margin-right: 1vw;
-    width: 10vw;
+    width: 20vw;
     height: 50%;
     background-image: url(../images/Question_Block.jpeg);
-    background-size:cover, cover;
+    background-size: cover, cover;
     background-repeat: no-repeat;
     background-position: center;
     text-align: center;
 }
-#opponent{
+
+#opponent {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -164,6 +180,7 @@ body{
     width: 100%;
     background-color: bisque;
 }
+
 #main-opponent {
     display: flex;
     flex-direction: row;
@@ -173,51 +190,70 @@ body{
     height: 11vh;
     top: 100%;
 }
-#main-opponent div{
+
+#main-opponent div {
     font-family: "custom";
     margin-left: 1vw;
     margin-right: 1vw;
     width: 15%;
     height: 100%;
     background-image: url(../images/Question_Block.jpeg);
-    background-size:contain, cover;
+    background-size: contain, cover;
     background-repeat: no-repeat;
     background-position: center;
     text-align: center;
 }
-#surrender{
+
+#surrender {
     background-color: red;
     z-index: 1;
 }
-#nextTurn{
+
+#nextTurn {
     position: absolute;
-    top:5vh;
+    top: 5vh;
     left: 15vw;
 }
-#heroPower{
+
+#heroPower {
     position: absolute;
-    top:5vh;
+    top: 5vh;
     left: 75vw;
 }
-.hpCarte{
-    margin-left: 1.5vw;
-    width: 3%;
+
+.hpCarte {
+    position: relative;
+    width: 9vw;
     height: 3vh;
+    background-image: url(/images/heart.PNG);
+    background-size: cover;
+    text-align: center;
 }
-.atkCarte{
-    margin-right: 1.5vw;
-    width: 3%;
+
+.atkCarte {
+    position: relative;
+    width: 9vw;
     height: 3vh;
+    left: 2vw;
+    background-image: url(/images/wandAttack.PNG);
+    background-size: cover;
+    text-align: center;
 }
-.mechanicCarte{
+
+.mechanicCarte {
     position: relative;
     margin-right: 1.5vw;
-    width: 10vw;
-    height: 10vh;
+    width: 20vw;
+    height: 8vh;
     top: 2vh;
-    left: -60%;
-    overflow:hidden;
+    left: -40%;
 }
-.mechanicCarte:hover{
-    overflow:visible;
+
+.mechanicCarte:hover {
+    overflow: visible;
+}
+
+.hp{
+    position: relative;
+    top: -0.5vh;
 }
