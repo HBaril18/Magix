@@ -111,6 +111,7 @@ const state = () => {
                         newNode.id = "carte-board";
 
                         newNode.addEventListener("click", () => {
+                            console.log("click ma carte");
                             playerCardUid = maVariable["board"][index].uid;
                         });
 
@@ -155,10 +156,9 @@ const state = () => {
                     if (playerCardUid != null && targetuid != null) {
                         console.log("click avatar");
                         action("ATTACK", playerCardUid, 0);
-                        targetuid = null;
-                        playerCardUid = null;
                     }
                 });
+
             }
             setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
         });
@@ -182,5 +182,5 @@ window.addEventListener("load", () => {
     });
 
     //GESTION DU BOUTON POUVOIR DU HÉRO
-
+    
 });
