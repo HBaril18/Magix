@@ -22,6 +22,18 @@ const state = () => {
                 }
             }
             else {
+
+                //GESTION CLIQUE SUR L'AVATAR ENNEMI
+                let nodeAvatar = document.querySelector("#avatarEnnemi");
+                nodeAvatar.addEventListener("click", () => {
+                    //ACTION ATTACK
+                    if (playerCardUid != null) {
+                        console.log("click avatar");
+                        action("ATTACK", playerCardUid, 0);
+                        playerCardUid = null;
+                    }
+                });
+
                 //GESTION DU BOARD DE L'OPPOSANT
                 if (maVariable["opponent"]["board"].length != 0) {
                     document.querySelector("#opposantCarte").innerHTML = "";
@@ -35,7 +47,6 @@ const state = () => {
                             //ACTION ATTACK
                             if (playerCardUid != null && targetuid != null) {
                                 action("ATTACK", playerCardUid, targetuid);
-                                targetuid = null;
                                 playerCardUid = null;
                             }
                         });
@@ -148,17 +159,6 @@ const state = () => {
                     let newNode = document.createElement("div");
                     document.querySelector("#main-opponent").append(newNode);
                 }
-
-                //GESTION CLIQUE SUR L'AVATAR ENNEMI
-                let nodeAvatar = document.querySelector("#avatarEnnemi");
-                nodeAvatar.addEventListener("click", () => {
-                    //ACTION ATTACK
-                    if (playerCardUid != null && targetuid != null) {
-                        console.log("click avatar");
-                        action("ATTACK", playerCardUid, 0);
-                    }
-                });
-
             }
             setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
         });
