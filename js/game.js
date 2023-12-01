@@ -9,7 +9,7 @@ const state = () => {
     })
         .then(response => response.json())
         .then(data => {
-            //console.log(data); // contient les cartes/état du jeu.
+            console.log(data); // contient les cartes/état du jeu.
 
             let maVariable = data;
 
@@ -110,6 +110,7 @@ const state = () => {
                         newNode.addEventListener("click", () => {
                             let nodeuid = maVariable["hand"][index].uid;
                             let nodeid = maVariable["hand"][index].id;
+                            console.log("amine : ", nodeuid, " ", nodeid);
                             action("PLAY", nodeuid, nodeid);
                         });
                     }

@@ -1,4 +1,6 @@
 <?php
+	require_once("Action/constant.php");
+
 	session_start();
 
 	abstract class CommonAction {
