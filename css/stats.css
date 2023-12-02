@@ -1,0 +1,24 @@
+.data-line {
+    margin-top:10px;
+    text-align: center;
+}
+
+.half-width {
+    width: 50%;
+    margin:0 auto;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    padding-top:5vh;
+}
+
+.box {
+    min-width: 300px;
+    max-width: 600px;
+    width: 100%;
+    padding:10px;
+    border:1px solid #aaa;
+    background-color:rgba(255, 255, 255, 0.4);
+}
