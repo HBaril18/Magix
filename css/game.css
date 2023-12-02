@@ -109,8 +109,8 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-left: 1vw;
     margin-right: 1vw;
-    width: 8%;
-    height: 150%;
+    width: 150px;
+    height: 200px;
     top: -10%;
     background-image: url(../images/Question_Block.jpeg);
     background-size: contain, cover;
@@ -273,4 +273,10 @@ body {
     position: relative;
     left: 48%;
     z-index: 12;
+}
+
+#nomJoueur{
+    position: relative;
+    left: 20%;
+    z-index: 12;  
 }

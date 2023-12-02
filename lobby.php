@@ -16,10 +16,10 @@
 <script src="js/javascript.js"></script>
 <body>
     <div id="bouton">
-        <button id="pratique">
+        <button id="pratique" onclick="location.href = 'game.php';">
             Pratique
         </button>
-        <button id="jouer" onclick="location.href = 'game.php';">
+        <button id="jouer" onclick="$_SESSION['type'] = 'PVP'location.href = 'game.php';">
             Jouer
         </button>
         <button id="quitter" onclick="location.href = 'logout.php';">

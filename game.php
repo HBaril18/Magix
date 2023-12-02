@@ -39,6 +39,7 @@
         </div>
         </div>
         <div id="opponent">
+            <div id="nomJoueur"></div>
             <div id="avatarEnnemi">AVATAR</div>
             <div id="vie-opposant"></div>
             <div id="mp-opposant"></div>

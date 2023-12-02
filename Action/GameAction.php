@@ -10,7 +10,8 @@
 
         protected function executeAction() {
             $data = [];
-            $_SESSION["type"] = "TRAINING";
+
+            echo($_SESSION["key"]);
 
             $data["key"] = $_SESSION["key"];
             $data["type"] = $_SESSION["type"];

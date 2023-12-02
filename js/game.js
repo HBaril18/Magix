@@ -2,6 +2,7 @@ let handSize = 0;
 let boardSize = 0;
 let targetuid = 0;
 let playerCardUid = 0;
+let nodeHero;
 
 const state = () => {
     fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle 
@@ -13,15 +14,20 @@ const state = () => {
 
             let maVariable = data;
 
+            console.log(maVariable);
+
             if (typeof maVariable !== "object") {
                 if (maVariable == "LAST_GAME_WON") {
                     document.querySelector("#etatPartie").innerText = "VICTOIRE !!!";
+
                 }
                 else if (maVariable == "LAST_GAME_LOST") {
                     document.querySelector("#etatPartie").innerText = "DÉFAITE !!!";
                 }
             }
             else {
+                //GESTION DU NOM DE L'ENNEMI
+                document.querySelector("#nomJoueur").innerText = maVariable["opponent"].username;
 
                 //GESTION CLIQUE SUR L'AVATAR ENNEMI
                 let nodeAvatar = document.querySelector("#avatarEnnemi");
@@ -33,6 +39,26 @@ const state = () => {
                         playerCardUid = null;
                     }
                 });
+
+                //GESTION POUVOIR DU HÉRO
+                if (!maVariable["heroPowerAlreadyUsed"] && maVariable["mp"] >= 2 && maVariable["yourTurn"]){
+                    document.querySelector("#heroPower").classList.add("usable");
+                    nodeHero = document.querySelector(".usable");
+                }else{
+                    document.querySelector("#heroPower").classList.remove("usable");
+                    nodeHero = null;
+                }
+
+                
+                if (nodeHero != null) {
+                    nodeHero.addEventListener("click", () => {
+                        //ACTION ATTACK
+                        action("HERO_POWER", null, null);
+                        nodeHero = null;
+                        console.log("click heroPower");
+                    });
+                }
+                
 
                 //GESTION DU BOARD DE L'OPPOSANT
                 if (maVariable["opponent"]["board"].length != 0) {
@@ -179,6 +205,7 @@ window.addEventListener("load", () => {
     nodeNextTurn.addEventListener("click", () => {
         console.log("click");
         action("END_TURN", null, null);
+        variable = 0;
     });
 
     //GESTION DU BOUTON POUVOIR DU HÉRO
