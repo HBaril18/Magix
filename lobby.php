@@ -10,24 +10,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/animationOeil.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/lobby.css">
     <title>Lobby</title>
 </head>
 <script src="js/javascript.js"></script>
 <body>
-    <div id="bouton">
-        <button id="pratique" onclick="location.href = 'game.php';">
-            Pratique
+    <div class="gauche">
+        <div id="saison">
+            <div id="logoV"></div>
+            <div id="texteSaison">
+                <p id="texte1">Magix</p>
+                <p id="texte2">AUTOMNE 2023 // 2024</p>
+            </div>
+        </div>
+        <div class="un">
+            <div id="btnJouer" class="square"></div>
+            <button id="jouer" onclick="toggleVisibility()">JOUER</button>
+        </div>
+        <script>
+            // Fonction pour basculer la visibilité du div monDiv
+            function toggleVisibility() {
+            var monDiv = document.getElementById("monDiv");
+            if (monDiv.style.display === "none")
+                monDiv.style.display = "block";
+            }
+        </script>
+        <div class="deux">
+            <div id="btnDeck" class="square"></div>
+            <button id="deck" onclick="location.href = 'deck.php';">DECK</button>
+        </div>
+    </div>
+    <div id="monDiv" style="display: none;">
+        <div id="close">X</div>
+        <form action="game.php" method="post" id="monDivBoutton">
+            <button id="train" type="action" name="action" value="TRAINING">PRATIQUE</button>
+            <button id="pvp" type="action" name="action" value="PVP">PLAYER VS PLAYER</button>
+        </form>
+    </div>
+    <div class="parametre">
+        <button id="params" onclick="location.href = 'logout.php';">
+            ⚙
         </button>
-        <button id="jouer" onclick="$_SESSION['type'] = 'PVP'location.href = 'game.php';">
-            Jouer
-        </button>
-        <button id="quitter" onclick="location.href = 'logout.php';">
-            Quitter
-        </button>
-        <button id="deck" onclick="location.href = 'deck.php';">
-            Deck
-        </button>
+    </div>
+    <div class="eye" id="e1">
+        <div class="pupil" id="p1"></div>
+    </div>
+    <div class="eye" id="e2">
+        <div class="pupil" id="p2"></div>
+    </div>
+    <canvas id="smokeCanvas"></canvas>
+    <div id="actionButton">
+        
     </div>
     <div id="chat">
         <iframe style="width:600px;height:530px;" onload="applyStyles(this)" 

@@ -1,13 +1,283 @@
 @font-face {
-    font-family: "custom";
-    src: url("../../fonts/RoBlueShellBold-gxn35.otf");
+    font-family: "Tungsten-Bold";
+    src: url("../fonts/Tungsten/Tungsten-Bold/Tungsten-Bold.ttf");
 }
 
-button{
-    font-family: "custom";
-    font-size: 20px;
-    padding: 12px,12px,12px,12px;
+@font-face {
+    font-family: 'Valorant';
+    src: url("../fonts/ValorantOG/Valorant\ Font.ttf");
+}
+
+@font-face {
+    font-family: 'Tungsten-Light';
+    src: url("../fonts/Tungsten/Tungsten-Light.ttf");
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-image: url(/images/L10_Sillos_Final.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#actionButton{
+    display: none;
+    flex-direction: column;
+}
+
+#chat{
+    display: none;
+}
+
+#jouer{
+    position: relative;
+    border: none;
+    background-color: unset;
+    font-size: 90px;
+    font-family: "Tungsten-Bold", sans-serif;
+    color: rgb(255, 103, 103);
+    transition: transform 0.2s;
+    margin-left: 10px;
+    left: 40px;
+}
+
+.un:hover #jouer{
+    transform: translateX(15px);
+    color: rgb(158, 255, 250);
+}
+
+.un:hover #btnJouer{
+    transform: rotate(180deg);
+    height: 12px;
+    width: 12px;
+}
+
+#btnJouer{
+    transition: transform 0.1s ease, height 0.1s ease, width 0.1s ease;
+    transform-origin: center center;
+}
+
+#deck{
+    position: relative;
+    border: none;
+    background-color: unset;
+    font-size: 50px;
+    font-family: "Tungsten-Bold", sans-serif;
+    color: #FFFFFF;
+    transition: transform 0.2s;
+    margin-left: 10px;
+    left: 40px;
+}
+
+.deux:hover #deck{
+    transform: translateX(15px);
+    color: rgb(158, 255, 250);
+}
+
+.deux:hover #btnDeck{
+    transform: rotate(180deg);
+    height: 12px;
+    width: 12px;
+}
+
+#btnDeck{
+    transition: transform 0.1s ease, height 0.1s ease, width 0.1s ease;
+    transform-origin: center center;
+}
+
+#params{
+    border: none;
+    font-size: 60px;
     height: 100px;
-    width: 250px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 1s ease;
 }
 
+#params:hover{
+    background-color: rgba(247, 255, 201, 0.5);
+}
+
+.parametre{
+    height: 100vh;
+    width: 10%;
+    position: relative;
+    top: -101vh;
+    left: 95.8%;
+}
+
+.gauche{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 27%;
+}
+
+.un{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.square{
+    position: relative;
+    text-align: center;
+    align-self: center;
+    height: 8px;
+    width: 8px;
+    background-color: aqua;
+    rotate: 45deg;
+    left: 40px;
+}
+
+.deux{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+#smokeCanvas{
+    position: fixed;
+    z-index: 10;
+    width:300px;
+    height:300px;
+    top: 42.7%;
+    left: 41.7%;
+}
+
+.eye {
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    background-color: #3498db; /* Couleur de fond, changez selon vos préférences */
+    border-radius: 50%;
+    transform: rotate(80deg);
+    margin: 20px; /* Ajoutez une marge si nécessaire */
+}
+
+.pupil {
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    background-color: #FFFFFF; /* Couleur de fond, changez selon vos préférences */
+    border-radius: 50%;
+    transform: rotate(80deg);
+    margin: 20px; /* Ajoutez une marge si nécessaire */
+}
+
+#e1{
+    top: 45.5%;
+    left: 46%;
+}
+
+#e2{
+    top: 45.5%;
+    left: 48%;
+}
+
+#p1{
+    top: -17px;
+    left: -17px;
+}
+
+#p2{
+    top: -17px;
+    left: -17px;
+}
+
+#monDiv {
+    position: absolute;
+    width: 20%;
+    height: 60%;
+    background-color: rgba(49, 49, 49, 0.8);
+    margin-top: 10px;
+    top: 25%;
+    left: 40%;
+    z-index: 100;
+}
+
+#saison{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 10%;
+    width: 100%;
+    top: -39%;
+}
+
+#logoV{
+    height: 50px;
+    width: 50px;
+    background-image: url(/images/vLogo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#texteSaison{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#texte1{
+    position: relative;
+    font-family: 'Valorant';
+    font-size: 50px;
+    margin-left: 20px;
+    color: rgba(0,0,0,0);
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    top: -45px;
+}
+
+#texte2{
+    position: relative;
+    margin-left: 20px;
+    top: -120px;
+    color: #FFFFFF;
+    font-family: "Tungsten-Bold", sans-serif;
+    letter-spacing: .2rem;
+}
+
+#monDivBoutton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 35%;
+}
+
+#monDivBoutton button{
+    position: relative;
+    width: 70%;
+    margin-bottom: 10px;
+    height: 50px;
+    top: 35%;
+    color: #FFFFFF;
+    font-family: "Tungsten-Light";
+    font-size: 30px;
+}
+
+#train{
+    border: rgba(156, 156, 156, 0.9);
+    border-style: solid;
+    background-color: rgba(131, 131, 131, 0.9);
+    transition: border-color 1s ease;
+}
+
+#train:hover{
+    border-color: rgba(255, 240, 173, 0.815);
+}
+
+#pvp{
+
+}

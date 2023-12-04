@@ -1,23 +1,62 @@
-/*Page CSS pour index.css*/
-/*animation de mario qui se cogne contre le block 'login, donc ?'*/
+@font-face {
+    font-family: "Valorant";
+    src: url("../fonts/ValorantOG/Valorant\ Font.ttf");
+}
 
-html{
-    background: url(/images/backGM2.jpeg) no-repeat center center fixed;
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url(/images/isoBG.jpeg);
     background-size: cover;
+    background-position: center center;
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
-body {
+
+#bg{
     display: flex;
+    align-items: center top;
     justify-content: center;
+    position: relative;
+    width: 75%;
 }
 
 #boiteLogin {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: relative;
+    width: 27%;
+    height: 105vh;
+    align-self: center;
+    z-index: 1;
+    background-color: #f1f0f0;
+    top: -10px;
+    left: -10px;
+}
+
+input{
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 2px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: left;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  height: 100px;
+  width: 300px;
 }
 
 .sign-in-input-group {
@@ -29,39 +68,102 @@ body {
     height: 200px;
     width: 200px;
     align-items: center;
-    background-image: url(../images/Question_Block.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute;
+    position: relative;
+    top: -100px;
 }
 
 #nom {
-    text-align: center;
-    align-items: center;
-    width: 150px;
+    text-align: left;
+    bottom: 5px;
 }
 
 #mdp {
-    text-align: center;
-    align-items: center;
-    width: 150px;
+    text-align: left;
 }
 
 #login {
-    text-align: center;
-    width: 157px;
+    text-align: center; 
 }
 
-/*#block {
-    height: 4.5vh;
-    width: 3vw;
-    position: absolute;
-    background-image: url(../images/Question_Block.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    top: 68.9vh;
-    left: 37vw;
-}*/
-
 #hidden {
+    position: relative;
+    text-align: center;
+    top: -600px;
+}
+
+#hidden p {
+    font-family: 'Poppins', sans-serif;
+    color:rgb(159, 3, 190);
+}
+
+.bouton {
+  background-color: #f1f0f0;
+  border-radius: 20px;
+  border-width: 1;
+  border-color: rgba(51, 51, 51, 0.20);
+  color: rgba(51, 51, 51, 0.20);
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: baseline;
+  top: 100px;
+}
+
+.icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+label {
+    position: relative;
+    transform: translateY(-150%);
+    transition: margin-top 1s ease-in-out, font-size 0.1s ease-out;
+    pointer-events: none;
+    font-family: 'Poppins', sans-serif;
+    left: -80px;
+    text-align: left;
+}
+
+input:focus + label, input:not(:placeholder-shown) + label {
+    top: -30px;
+    left: -115px;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#logo{
+    position: relative;
+    background-image: url(/images/riotGamesLogo.PNG);
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 125px;
+    top: -225px;
+}
+
+#signIn{
+    position: relative;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    top: 200px;
+}
+
+#smokeCanvas{
+    z-index: 10;
+}
+
+#magix{
+    font-size: 100px;
+    font-family: 'Valorant';
 }

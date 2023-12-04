@@ -1,16 +1,16 @@
 @font-face {
     font-family: "Arcade-Nerf";
-    src: url("../fonts/PuffinArcade-Nerf.otf");
+    src: url("../fonts/Puffin/PuffinArcade-Nerf.otf");
 }
 
 @font-face {
     font-family: "Arcade-Chrome";
-    src: url("../fonts/PuffinArcade-Chrome.otf");
+    src: url("../fonts/Puffin/PuffinArcade-Chrome.otf");
 }
 
 @font-face {
     font-family: "Soft-BlkItalic";
-    src: url("../fonts/PuffinDisplaySoft-BlkItalic.otf");
+    src: url("../fonts/Puffin/PuffinDisplaySoft-BlkItalic.otf");
 }
 
 body {

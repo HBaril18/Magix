@@ -10,11 +10,11 @@ const state = () => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data); // contient les cartes/état du jeu.
+            //console.log(data); // contient les cartes/état du jeu.
 
             let maVariable = data;
 
-            console.log(maVariable);
+            //console.log(maVariable);
 
             if (typeof maVariable !== "object") {
                 if (maVariable == "LAST_GAME_WON") {

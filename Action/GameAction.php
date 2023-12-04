@@ -11,10 +11,8 @@
         protected function executeAction() {
             $data = [];
 
-            echo($_SESSION["key"]);
-
             $data["key"] = $_SESSION["key"];
-            $data["type"] = $_SESSION["type"];
+            $data["type"] = $_POST["action"];
 
             $result = parent::callAPI("games/auto-match", $data);
             

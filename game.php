@@ -17,7 +17,12 @@
 <script src="js/game.js"></script>
 <script src="js/gameAction.js"></script>
 <body>
-    <div id="jeux">
+    <div id="jeux"> <!-- 
+        <div id="chat">
+            <iframe style="width:600px;height:530px;" onload="applyStyles(this)" 
+                src="https://magix.apps-de-cours.com/server/#/chat/<?= $data["key"]?>">
+            </iframe>
+        </div>-->
         <div id="nextTurn">Passer la main</div>
         <div id="messageJeu"></div>
         <div id="en-tete">
