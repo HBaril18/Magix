@@ -113,7 +113,7 @@ body{
     width: 10%;
     position: relative;
     top: -101vh;
-    left: 95.8%;
+    left: 94.5%;
 }
 
 .gauche{
@@ -157,26 +157,6 @@ body{
     height:150px;
     top: 21%;
     left: 45.5%;
-}
-
-.eye {
-    position: absolute;
-    width: 10px;
-    height: 15px;
-    background-color: #3498db; /* Couleur de fond, changez selon vos préférences */
-    border-radius: 50%;
-    transform: rotate(80deg);
-    margin: 20px; /* Ajoutez une marge si nécessaire */
-}
-
-.pupil {
-    position: absolute;
-    width: 5px;
-    height: 10px;
-    background-color: #FFFFFF; /* Couleur de fond, changez selon vos préférences */
-    border-radius: 50%;
-    transform: rotate(80deg);
-    margin: 20px; /* Ajoutez une marge si nécessaire */
 }
 
 #e2{
@@ -287,7 +267,7 @@ body{
     font-family: "Valorant";
     font-size: 50px;
     top: 1.5%;
-    left: 88.5%;
+    left: 86.5%;
     color: rgba(0,0,0,0);
     -webkit-text-stroke: 1px rgb(255, 255, 255);
     transition: -webkit-text-stroke 1s;
@@ -310,23 +290,13 @@ body{
     border-color: rgba(255, 240, 173, 0.815);
 }
 
-.star {
-    background: #fff;
+#paramDiv{
     position: absolute;
-    -webkit-animation: blinkAnim 5s infinite;
-    -moz-animation: blinkAnim 5s infinite;
-    -ms-animation: blinkAnim 5s infinite;
-    -o-animation: blinkAnim 5s infinite;
-    animation: blinkAnim 5s infinite;
-}
-
-@keyframes blinkAnim {
-     from { opacity: 1; }
-     50%   { opacity: 0; }
-     to   { opacity: 1; }
-}
-@-webkit-keyframes blinkAnim {
-     from { opacity: 1; }
-     50%   { opacity: 0; }
-     to   { opacity: 1; }
+    width: 20%;
+    height: 60%;
+    background-color: rgba(49, 49, 49, 0.8);
+    margin-top: 10px;
+    top: 25%;
+    left: 40%;
+    z-index: 100;
 }

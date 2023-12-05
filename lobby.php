@@ -76,10 +76,7 @@
         </button>
     </div>
     <div id="paramDiv">
-
-    </div>
-    <div class="eye" id="e2">
-        <div class="pupil" id="p2"></div>
+            <div id="quitterBtn">QUITTER</div>
     </div>
     <canvas id="smokeCanvas"></canvas>
     <div id="actionButton">
