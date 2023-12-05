@@ -18,7 +18,8 @@
             $data["targetuid"] = $_POST["targetuid"];
 
             if ($_POST["type"] == "PLAY"){
-                $addstats = StatsInfosDAO::addStats($_POST["targetuid"]);
+                //$addstats = 
+                StatsInfosDAO::addStats($_POST["targetuid"]);
             }
 
             $result = parent::callAPI("games/action", $data);
