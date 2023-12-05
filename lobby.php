@@ -35,9 +35,27 @@
         <script>
             // Fonction pour basculer la visibilité du div monDiv
             function toggleVisibility() {
-            var monDiv = document.getElementById("monDiv");
-            if (monDiv.style.display === "none")
-                monDiv.style.display = "block";
+            let monDiv = document.getElementById("monDiv");
+                if (monDiv.style.display === "none")
+                    monDiv.style.display = "block";
+            }
+
+            function toggleParamsVisibility(){
+                let monDiv = document.getElementById("paramDiv");
+                if (monDiv.style.display === "none")
+                    monDiv.style.display = "block";
+            }
+
+            function unToggleParamsVisibility() {
+                let monDiv = document.getElementById("monDiv");
+                if (monDiv.style.display === "block")
+                    monDiv.style.display = "none";
+            }
+
+            function unToggleVisibility() {
+                let monDiv = document.getElementById("monDiv");
+                if (monDiv.style.display === "block")
+                    monDiv.style.display = "none";
             }
         </script>
         <div class="deux">
@@ -46,19 +64,19 @@
         </div>
     </div>
     <div id="monDiv" style="display: none;">
-        <div id="close">X</div>
+        <div id="close" onclick="unToggleVisibility()">X</div>
         <form action="game.php" method="post" id="monDivBoutton">
             <button id="train" type="action" name="action" value="TRAINING">PRATIQUE</button>
             <button id="pvp" type="action" name="action" value="PVP">PLAYER VS PLAYER</button>
         </form>
     </div>
     <div class="parametre">
-        <button id="params" onclick="location.href = 'logout.php';">
+        <button id="params" onclick="toggleParamsVisibility()">
             ⚙
         </button>
     </div>
-    <div class="eye" id="e1">
-        <div class="pupil" id="p1"></div>
+    <div id="paramDiv">
+
     </div>
     <div class="eye" id="e2">
         <div class="pupil" id="p2"></div>
