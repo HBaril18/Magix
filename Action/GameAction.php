@@ -18,7 +18,8 @@
             
             //var_dump($result);exit;
 
-            return [];
+            $key = $_SESSION["key"];
+            return (compact("key"));
         }
 
     }

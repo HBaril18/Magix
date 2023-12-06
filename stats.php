@@ -3,14 +3,22 @@
 
     $action = new StatsAction();
     $data = $action->execute();
-
-    //require_once("partial/header.php");
+;
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+</head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/stats.css">
+    <body>
     <h1>Statistiques</h1>
     <div class="data-line">
-        Nombre de participants :
+        Id des cartes :
     </div>
     <div class="data-line">
         <canvas id="pie-chart"></canvas>
@@ -53,6 +61,14 @@
 
             new Chart(document.getElementById('pie-chart'), config);
         </script>
+        <form action="" method="post">
+            <button id="download" name="type" value="download">DOWNLOAD DATABASE</button>
+            <button id="delete" name="type" value="delete">DELETE DATABASE</button>
+        </form>
+        <button id="retour" onclick="location.href = 'lobby.php';">
+            <
+        </button>
     </div>
+    </body>
+    </html>
 <?php
-   // require_once("partial/footer.php");

@@ -35,7 +35,7 @@ body{
 
 #chat{
     position: absolute;
-    top: 88%;
+    top: 85%;
     width: 120%;
 }
 
@@ -91,6 +91,40 @@ body{
 }
 
 #btnDeck{
+    transition: transform 0.1s ease, height 0.1s ease, width 0.1s ease;
+    transform-origin: center center;
+}
+
+#chat{
+    position: absolute;
+    top: 85%;
+    width: 120%;
+}
+
+#stats{
+    position: relative;
+    border: none;
+    background-color: unset;
+    font-size: 50px;
+    font-family: "Tungsten-Bold", sans-serif;
+    color: #FFFFFF;
+    transition: transform 0.2s;
+    margin-left: 10px;
+    left: 40px;
+}
+
+.trois:hover #stats{
+    transform: translateX(15px);
+    color: rgb(158, 255, 250);
+}
+
+.trois:hover #btnStats{
+    transform: rotate(180deg);
+    height: 12px;
+    width: 12px;
+}
+
+#btnStats{
     transition: transform 0.1s ease, height 0.1s ease, width 0.1s ease;
     transform-origin: center center;
 }
@@ -152,6 +186,13 @@ body{
     width: 35%;
 }
 
+.trois{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+}
+
 #smokeCanvas{
     position: fixed;
     z-index: 10;
@@ -193,7 +234,7 @@ body{
     position: relative;
     height: 10%;
     width: 100%;
-    top: -37%;
+    top: -35%;
 }
 
 #logoV{

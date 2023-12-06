@@ -3,6 +3,7 @@ let boardSize = 0;
 let targetuid = 0;
 let playerCardUid = 0;
 let nodeHero;
+let mpJoueur = 0;
 
 const state = () => {
     fetch("ajax.php", {   // Il faut créer cette page et son contrôleur appelle 
@@ -14,11 +15,14 @@ const state = () => {
 
             if (typeof maVariable !== "object") {
                 if (maVariable == "LAST_GAME_WON") {
-                    document.querySelector("#etatPartie").innerText = "VICTOIRE !!!";
+                    document.querySelector("#messageEP").innerText = "VICTOIRE !!!";
+                    document.querySelector("#etatPartie").style.display = "block";
 
                 }
                 else if (maVariable == "LAST_GAME_LOST") {
-                    document.querySelector("#etatPartie").innerText = "DÉFAITE !!!";
+                    document.querySelector("#messageEP").innerText = "DÉFAITE !!!";
+                    document.querySelector("#etatPartie").style.display = "block";
+                    document.querySelector("#etatPartie").style.color = "#ff4e5f"
                 }
             }
             else {
@@ -37,10 +41,10 @@ const state = () => {
                 });
 
                 //GESTION POUVOIR DU HÉRO
-                if (!maVariable["heroPowerAlreadyUsed"] && maVariable["mp"] >= 2 && maVariable["yourTurn"]){
+                if (!maVariable["heroPowerAlreadyUsed"] && maVariable["mp"] >= 2 && maVariable["yourTurn"]) {
                     document.querySelector("#heroPower").classList.add("usable");
                     nodeHero = document.querySelector(".usable");
-                }else{
+                } else {
                     document.querySelector("#heroPower").classList.remove("usable");
                     nodeHero = null;
                 }
@@ -57,7 +61,7 @@ const state = () => {
                 if (maVariable["opponent"]["board"].length != 0) {
                     document.querySelector("#opposantCarte").innerHTML = "";
                     for (let index = 0; index < maVariable["opponent"]["board"].length; index++) {
-                        let carteID = maVariable["hand"][index].id;
+                        let carteID = maVariable["opponent"]["board"][index].id;
                         let newNode = document.createElement("div");
                         newNode.classList.add(maVariable["opponent"]["board"][index].uid);
                         newNode.id = "carteOpposant-board";
@@ -72,7 +76,7 @@ const state = () => {
                         });
 
                         //IMAGE POUR LES CARTES
-                        if ((carteID-1) < 24){
+                        if ((carteID - 1) < 24) {
                             newNode.style.backgroundImage = "url(/images/" + imageId[carteID - 1] + ".jpg)";
                         } else {
                             newNode.style.backgroundImage = "url('/images/24.jpg')";
@@ -86,6 +90,21 @@ const state = () => {
                         newDivATK.classList.add("atkCarte");
                         let newDivMechanic = document.createElement("div");
                         newDivMechanic.classList.add("mechanicCarte");
+                        let newDivImage = null;
+
+                        for (let index2 = 0; index2 < maVariable["opponent"]["board"][index]["mechanics"].length; index2++) {
+                            if (maVariable["opponent"]["board"][index]["mechanics"][index2] == "Stealth" || maVariable["opponent"]["board"][index]["mechanics"][index2] == "Taunt") {
+                                newDivImage = document.createElement("div");
+                                newDivImage.classList.add("imageTS");
+                                console.log("taunt ou stealth");
+                                if (maVariable["opponent"]["board"][index]["mechanics"][index2] == "Stealth") {
+                                    newDivImage.classList.add("imageS");
+                                }
+                                if (maVariable["opponent"]["board"][index]["mechanics"][index2] == "Taunt") {
+                                    newDivImage.classList.add("imageT");
+                                }
+                            }
+                        }
 
                         newDivATK.innerText = maVariable["opponent"]["board"][index].atk;
                         newDivHP.innerText = maVariable["opponent"]["board"][index].hp;
@@ -95,6 +114,9 @@ const state = () => {
                         newNode.append(newDivHP);
                         newNode.append(newDivATK);
                         newNode.append(newDivMechanic);
+                        if (newDivImage != null) {
+                            newNode.append(newDivImage);
+                        }
                     }
                 }
 
@@ -108,11 +130,22 @@ const state = () => {
                 document.querySelector("#mp").innerText = data.mp;
 
                 //GESTION DE LA MAIN DU JOUEUR
-                console.log(maVariable["yourTurn"]);
+                if (maVariable["yourTurn"]){
+                    let newNode = document.querySelector("#joueur");
+                    newNode.classList.add("tour");
+                    let newNode2 = document.querySelector("#opponent");
+                    newNode2.classList.remove("tour");
+                }
+                else {
+                    let newNode = document.querySelector("#opponent");
+                    newNode.classList.add("tour");
+                    let newNode2 = document.querySelector("#joueur");
+                    newNode2.classList.remove("tour");
+                }
                 if (handSize != maVariable["hand"].length) {
-                    console.log("mon tour");
                     document.querySelector("#main").innerHTML = "";
                     for (let index = 0; index < maVariable["hand"].length; index++) {
+                        mpJoueur = maVariable.mp;
                         let carteID = maVariable["hand"][index].id;
                         let newNode = document.createElement("div");
                         newNode.classList.add("carte");
@@ -127,6 +160,27 @@ const state = () => {
                         let newDivMP = document.createElement("div");
                         newDivMP.classList.add("mp");
 
+                        let newDivPossible = null;
+                        let newDivImage = null;
+
+                        if (mpJoueur >= maVariable["hand"][index].cost){
+                            newNode.classList.add("possible");
+                        }
+
+                        for (let index2 = 0; index2 < maVariable["hand"][index]["mechanics"].length; index2++) {
+                            if (maVariable["hand"][index]["mechanics"][index2] == "Stealth" || maVariable["hand"][index]["mechanics"][index2] == "Taunt") {
+                                newDivImage = document.createElement("div");
+                                newDivImage.classList.add("imageTS");
+                                console.log("taunt ou stealth");
+                                if (maVariable["hand"][index]["mechanics"][index2] == "Stealth") {
+                                    newDivImage.classList.add("imageS");
+                                }
+                                if (maVariable["hand"][index]["mechanics"][index2] == "Taunt") {
+                                    newDivImage.classList.add("imageT");
+                                }
+                            }
+                        }
+
                         newDivATK.innerText = maVariable["hand"][index].atk;
                         newDivHP.innerText = maVariable["hand"][index].hp;
                         newDivMechanic.innerText = maVariable["hand"][index].mechanics;
@@ -137,14 +191,17 @@ const state = () => {
                         newNode.append(newDivATK);
                         newNode.append(newDivMechanic);
                         newNode.append(newDivMP);
+                        if (newDivImage != null) {
+                            newNode.append(newDivImage);
+                        }
 
                         //IMAGE POUR LES CARTES
-                        if ((carteID-1) < 24){
+                        if ((carteID - 1) < 24) {
                             newNode.style.backgroundImage = "url(/images/" + imageId[carteID - 1] + ".jpg)";
                         } else {
                             newNode.style.backgroundImage = "url('/images/24.jpg')";
                         }
-                        
+
                         //ACTION JOUER CARTE
                         newNode.addEventListener("click", () => {
                             let nodeuid = maVariable["hand"][index].uid;
@@ -158,7 +215,7 @@ const state = () => {
                 if (maVariable["board"].length != 0) {
                     document.querySelector("#joueurCarte").innerHTML = "";
                     for (let index = 0; index < maVariable["board"].length; index++) {
-                        let carteID = maVariable["hand"][index].id;
+                        let carteID = maVariable["board"][index].id;
                         let newNode = document.createElement("div");
                         newNode.id = "carte-board";
 
@@ -169,7 +226,7 @@ const state = () => {
                         });
 
                         //IMAGE POUR LES CARTES
-                        if ((carteID-1) < 24){
+                        if ((carteID - 1) < 24) {
                             newNode.style.backgroundImage = "url(/images/" + imageId[carteID - 1] + ".jpg)";
                         } else {
                             newNode.style.backgroundImage = "url('/images/24.jpg')";
@@ -182,6 +239,22 @@ const state = () => {
                         newDivATK.classList.add("atkCarte");
                         let newDivMechanic = document.createElement("div");
                         newDivMechanic.classList.add("mechanicCarte");
+                        let newDivImage = null;
+
+                        //GESTION POUR LES STEALTH ET LES TAUNT
+                        for (let index2 = 0; index2 < maVariable["board"][index]["mechanics"].length; index2++) {
+                            if (maVariable["board"][index]["mechanics"][index2] == "Stealth" || maVariable["board"][index]["mechanics"][index2] == "Taunt") {
+                                newDivImage = document.createElement("div");
+                                newDivImage.classList.add("imageTS");
+                                console.log("taunt ou stealth");
+                                if (maVariable["board"][index]["mechanics"][index2] == "Stealth") {
+                                    newDivImage.classList.add("imageS");
+                                }
+                                if (maVariable["board"][index]["mechanics"][index2] == "Taunt") {
+                                    newDivImage.classList.add("imageT");
+                                }
+                            }
+                        }
 
                         newDivATK.innerText = maVariable["board"][index].atk;
                         newDivHP.innerText = maVariable["board"][index].hp;
@@ -191,6 +264,9 @@ const state = () => {
                         newNode.append(newDivHP);
                         newNode.append(newDivATK);
                         newNode.append(newDivMechanic);
+                        if (newDivImage != null) {
+                            newNode.append(newDivImage);
+                        }
                     }
                 }
 

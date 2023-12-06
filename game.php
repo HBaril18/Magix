@@ -17,22 +17,28 @@
 <script src="js/game.js"></script>
 <script src="js/gameAction.js"></script>
 <script src="js/imageId.js"></script>
+<script src="js/visibility.js" defer></script>
+<script src="js/javascript.js"></script>
 <body>
-    <div id="jeux"> <!-- 
-        <div id="chat">
-            <iframe style="width:600px;height:530px;" onload="applyStyles(this)" 
+    <div id="jeux">
+        <div id="chat" style="display: none;">
+            <iframe style="width:20%;height:80%;" onload="applyStyles(this)" 
                 src="https://magix.apps-de-cours.com/server/#/chat/<?= $data["key"]?>">
             </iframe>
-        </div>-->
+        </div>
         <div id="nextTurn">Passer la main</div>
         <div id="messageJeu"></div>
         <div id="en-tete">
             <div id="temps"></div>
             <div id="imageTemps"></div>
             <div id="surrender">/FF</div>
-            <div id="etatPartie"></div>
+            <div id="etatPartie" style="display:none;">
+                <div id="messageEP"></div>
+                <button id="quitter" onclick="location.href = 'lobby.php'">RETOUR AU LOBBY</button>
+            </div>
         </div>
         <div id="joueur">
+            <button id="chatBtn" onclick="chatToggleVisibility('chat')"></button>
             <div id="imageVie"></div>
             <div id="vie"></div>
             <div id="imageMp"></div>

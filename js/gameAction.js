@@ -17,7 +17,7 @@ const action = (type, uid, targetuid) => {
                 document.querySelector("#messageJeu").innerText = data;
             }
             else{
-                document.querySelector("#messageJeu").innerText = "carte joué";
+                document.querySelector("#messageJeu").innerText = "Action réussi";
             }
             setTimeout(() => {
                 document.querySelector("#messageJeu").innerText = "";
