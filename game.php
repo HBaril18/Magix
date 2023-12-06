@@ -16,6 +16,7 @@
 </head>
 <script src="js/game.js"></script>
 <script src="js/gameAction.js"></script>
+<script src="js/imageId.js"></script>
 <body>
     <div id="jeux"> <!-- 
         <div id="chat">
@@ -27,11 +28,14 @@
         <div id="messageJeu"></div>
         <div id="en-tete">
             <div id="temps"></div>
-            <div id="surrender">Se rendre</div>
+            <div id="imageTemps"></div>
+            <div id="surrender">/FF</div>
             <div id="etatPartie"></div>
         </div>
         <div id="joueur">
+            <div id="imageVie"></div>
             <div id="vie"></div>
+            <div id="imageMp"></div>
             <div id="mp"></div>
             <div id="main"></div>
             <div id="heroPower">Pouvoir du héro</div>
@@ -45,8 +49,10 @@
         </div>
         <div id="opponent">
             <div id="nomJoueur"></div>
-            <div id="avatarEnnemi">AVATAR</div>
+            <div id="avatarEnnemi"></div>
+            <div id="imageVie-opposant"></div>
             <div id="vie-opposant"></div>
+            <div id="imageMp-opposant"></div>
             <div id="mp-opposant"></div>
             <div id="main-opponent"></div>
         </div>

@@ -1,17 +1,17 @@
 const applyStyles = iframe => {
 	let styles = {
-		fontColor : "#333",
-		backgroundColor : "rgba(87, 41, 5, 0.2)",
-		fontGoogleName : "Luckiest Guy",
+		fontColor : "#FFFFFF",
+		backgroundColor : "rgba(65, 65, 65, 0.3)",
+		fontGoogleName : "Oswald",
 		fontSize : "20px",
-		hideIcons : false,
+		hideIcons : true,
 		inputBackgroundColor : "light grey",
-		inputFontColor : "blue",
+		inputFontColor : "white",
 		height : "500px",
 		padding: "5px",
-		memberListFontColor : "#ff00dd",
-		borderColor : "black",
-		memberListBackgroundColor : "white"
+		memberListFontColor : "#FFFFFF",
+		border: "none",
+		memberListBackgroundColor : "rgba(65, 65, 65, 0.3)",
 	}
 	
 	setTimeout(() => {

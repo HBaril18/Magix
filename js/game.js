@@ -10,11 +10,7 @@ const state = () => {
     })
         .then(response => response.json())
         .then(data => {
-            //console.log(data); // contient les cartes/état du jeu.
-
             let maVariable = data;
-
-            //console.log(maVariable);
 
             if (typeof maVariable !== "object") {
                 if (maVariable == "LAST_GAME_WON") {
@@ -48,8 +44,6 @@ const state = () => {
                     document.querySelector("#heroPower").classList.remove("usable");
                     nodeHero = null;
                 }
-
-                
                 if (nodeHero != null) {
                     nodeHero.addEventListener("click", () => {
                         //ACTION ATTACK
@@ -58,12 +52,12 @@ const state = () => {
                         console.log("click heroPower");
                     });
                 }
-                
 
                 //GESTION DU BOARD DE L'OPPOSANT
                 if (maVariable["opponent"]["board"].length != 0) {
                     document.querySelector("#opposantCarte").innerHTML = "";
                     for (let index = 0; index < maVariable["opponent"]["board"].length; index++) {
+                        let carteID = maVariable["hand"][index].id;
                         let newNode = document.createElement("div");
                         newNode.classList.add(maVariable["opponent"]["board"][index].uid);
                         newNode.id = "carteOpposant-board";
@@ -77,6 +71,15 @@ const state = () => {
                             }
                         });
 
+                        //IMAGE POUR LES CARTES
+                        if ((carteID-1) < 24){
+                            newNode.style.backgroundImage = "url(/images/" + imageId[carteID - 1] + ".jpg)";
+                        } else {
+                            newNode.style.backgroundImage = "url('/images/24.jpg')";
+                        }
+                        console.log("url('/images/')" + imageId[carteID - 1] + ".jpg");
+
+                        //CARTE ENNEMIE SUR LE JEU
                         let newDivHP = document.createElement("div");
                         newDivHP.classList.add("hpCarte");
                         let newDivATK = document.createElement("div");
@@ -110,9 +113,11 @@ const state = () => {
                     console.log("mon tour");
                     document.querySelector("#main").innerHTML = "";
                     for (let index = 0; index < maVariable["hand"].length; index++) {
+                        let carteID = maVariable["hand"][index].id;
                         let newNode = document.createElement("div");
                         newNode.classList.add("carte");
 
+                        //CARTE DU JOUEUR SUR LE BANC
                         let newDivHP = document.createElement("div");
                         newDivHP.classList.add("hpCarte");
                         let newDivATK = document.createElement("div");
@@ -133,26 +138,44 @@ const state = () => {
                         newNode.append(newDivMechanic);
                         newNode.append(newDivMP);
 
+                        //IMAGE POUR LES CARTES
+                        if ((carteID-1) < 24){
+                            newNode.style.backgroundImage = "url(/images/" + imageId[carteID - 1] + ".jpg)";
+                        } else {
+                            newNode.style.backgroundImage = "url('/images/24.jpg')";
+                        }
+                        
+                        //ACTION JOUER CARTE
                         newNode.addEventListener("click", () => {
                             let nodeuid = maVariable["hand"][index].uid;
                             let nodeid = maVariable["hand"][index].id;
-                            console.log("amine : ", nodeuid, " ", nodeid);
                             action("PLAY", nodeuid, nodeid);
                         });
                     }
                     handSize = maVariable["hand"].length
                 }
+                //GESTION DES CARTES JOUEURS SUR LE JEU
                 if (maVariable["board"].length != 0) {
                     document.querySelector("#joueurCarte").innerHTML = "";
                     for (let index = 0; index < maVariable["board"].length; index++) {
+                        let carteID = maVariable["hand"][index].id;
                         let newNode = document.createElement("div");
                         newNode.id = "carte-board";
 
+                        //ACTION ATTACK (ASSOCIATION DE LA CARTE DU JOUEUR)
                         newNode.addEventListener("click", () => {
                             console.log("click ma carte");
                             playerCardUid = maVariable["board"][index].uid;
                         });
 
+                        //IMAGE POUR LES CARTES
+                        if ((carteID-1) < 24){
+                            newNode.style.backgroundImage = "url(/images/" + imageId[carteID - 1] + ".jpg)";
+                        } else {
+                            newNode.style.backgroundImage = "url('/images/24.jpg')";
+                        }
+
+                        //CARTE DU JOUEUR SUR LE JEU
                         let newDivHP = document.createElement("div");
                         newDivHP.classList.add("hpCarte");
                         let newDivATK = document.createElement("div");
@@ -160,17 +183,14 @@ const state = () => {
                         let newDivMechanic = document.createElement("div");
                         newDivMechanic.classList.add("mechanicCarte");
 
-
                         newDivATK.innerText = maVariable["board"][index].atk;
                         newDivHP.innerText = maVariable["board"][index].hp;
                         newDivMechanic.innerText = maVariable["board"][index].mechanics;
-
 
                         document.querySelector("#joueurCarte").append(newNode);
                         newNode.append(newDivHP);
                         newNode.append(newDivATK);
                         newNode.append(newDivMechanic);
-
                     }
                 }
 
@@ -184,6 +204,7 @@ const state = () => {
                 document.querySelector("#main-opponent").innerHTML = "";
                 for (let index = 0; index < maVariable["opponent"].handSize; index++) {
                     let newNode = document.createElement("div");
+                    newNode.classList.add("carteCachee");
                     document.querySelector("#main-opponent").append(newNode);
                 }
             }
@@ -208,7 +229,4 @@ window.addEventListener("load", () => {
         action("END_TURN", null, null);
         variable = 0;
     });
-
-    //GESTION DU BOUTON POUVOIR DU HÉRO
-    
 });

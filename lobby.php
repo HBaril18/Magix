@@ -30,30 +30,18 @@
         </div>
         <div class="un">
             <div id="btnJouer" class="square"></div>
-            <button id="jouer" onclick="toggleVisibility()">JOUER</button>
+            <button id="jouer" onclick="toggleVisibility('monDiv')">JOUER</button>
         </div>
         <script>
             // Fonction pour basculer la visibilité du div monDiv
-            function toggleVisibility() {
-            let monDiv = document.getElementById("monDiv");
+            function toggleVisibility($div) {
+            let monDiv = document.getElementById($div);
                 if (monDiv.style.display === "none")
                     monDiv.style.display = "block";
             }
 
-            function toggleParamsVisibility(){
-                let monDiv = document.getElementById("paramDiv");
-                if (monDiv.style.display === "none")
-                    monDiv.style.display = "block";
-            }
-
-            function unToggleParamsVisibility() {
-                let monDiv = document.getElementById("monDiv");
-                if (monDiv.style.display === "block")
-                    monDiv.style.display = "none";
-            }
-
-            function unToggleVisibility() {
-                let monDiv = document.getElementById("monDiv");
+            function unToggleVisibility($div) {
+                let monDiv = document.getElementById($div);
                 if (monDiv.style.display === "block")
                     monDiv.style.display = "none";
             }
@@ -64,26 +52,29 @@
         </div>
     </div>
     <div id="monDiv" style="display: none;">
-        <div id="close" onclick="unToggleVisibility()">X</div>
+        <div id="close" onclick="unToggleVisibility('monDiv')">X</div>
         <form action="game.php" method="post" id="monDivBoutton">
             <button id="train" type="action" name="action" value="TRAINING">PRATIQUE</button>
             <button id="pvp" type="action" name="action" value="PVP">PLAYER VS PLAYER</button>
         </form>
     </div>
     <div class="parametre">
-        <button id="params" onclick="toggleParamsVisibility()">
+        <button id="params" onclick="toggleVisibility('paramDiv')">
             ⚙
         </button>
     </div>
-    <div id="paramDiv">
-            <div id="quitterBtn">QUITTER</div>
+    <div id="paramDiv" style="display: none;">
+        <div id="close" onclick="unToggleVisibility('paramDiv')">X</div>
+        <div id="monDivBoutton">
+            <div id="quitterBtn" onclick="location.href = 'index.php';">QUITTER</div>
+        </div>
     </div>
     <canvas id="smokeCanvas"></canvas>
-    <div id="actionButton">
+    <div id="chatBtn">
         
     </div>
     <div id="chat">
-        <iframe style="width:600px;height:530px;" onload="applyStyles(this)" 
+        <iframe style="width:20%;height:5%;" onload="applyStyles(this)" 
             src="https://magix.apps-de-cours.com/server/#/chat/<?= $data["key"]?>">
         </iframe>
     </div>
