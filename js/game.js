@@ -31,7 +31,7 @@ const state = () => {
 
                 //GESTION CLIQUE SUR L'AVATAR ENNEMI
                 let nodeAvatar = document.querySelector("#avatarEnnemi");
-                nodeAvatar.addEventListener("click", () => {
+                nodeAvatar.onclick("click", () => {
                     //ACTION ATTACK
                     if (playerCardUid != null) {
                         console.log("click avatar");
